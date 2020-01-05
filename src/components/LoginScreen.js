@@ -6,10 +6,21 @@ import React from 'react';
 import './../App.css';
 
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid'
-import Button from "./custombuttons/Button.js";
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+//import Button from "./custombuttons/Button.js";
+
+import BackGroundImage from "./../assets/images/14-Team-NFL-Playoffs.jpg";
 
 import { screenStates } from "./../App.js";
+
+
+//const images = [
+//    {
+//        url: "./../assets/images/14-Team-NFL-Playoffs.jpg",
+//        title: "playoff_brackets_image",
+//    }
+//]
 
 
 export default class LoginControl extends React.Component {
@@ -19,17 +30,26 @@ export default class LoginControl extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
+    handleClick(name) {
         // put in logic here to validate signin
 
-        // if valid, go to main screen
-        this.props.setScreen(screenStates.MAIN);
+        switch (name) {
+            case "signin":
+                this.props.setScreen(screenStates.MAIN);
+                return;
+            case "back":
+                this.props.setScreen(screenStates.LANDING);
+                return;
+            default:
+                alert("unknown");
+        }
+
     }
 
     render() {
         return (
-            <header className="App-Body" >
-                <div>
+            <div>
+                <img src={BackGroundImage} alt="" width="400"/> 
                     <Grid container justify="center" spacing={1} textAlign="center" >
                         <Grid item xs={10} sm={4}>
                             <TextField
@@ -56,10 +76,48 @@ export default class LoginControl extends React.Component {
                                 }}
                             />
                         </Grid>
+                        <Grid item xs={10} sm={4}>
+                            <Button
+                                type="button"
+                                color="primary"
+                                variant="contained"
+                                formControlProps={{
+                                    fullWidth: true
+                                }}
+                                onClick={() => this.handleClick("signin")}
+                                >
+                                Sign In
+                            </Button>
+                        </Grid>
+                    <Grid item xs={10} sm={4}>
+                        <Button
+                            type="button"
+                            color="primary"
+                            variant="contained"
+                            onClick={() => this.handleClick("signin")}
+                            >
+                            Sign In
+                        </Button>
                     </Grid>
-                    <Button type="button" color="success" onClick={this.handleClick}>Sign In</Button>
+
+                    </Grid>
+                    <Button
+                        type="button"
+                        color="primary"
+                        variant="contained"
+                        onClick={() => this.handleClick("signin")}
+                        >
+                        Sign In
+                    </Button>
+                    <Button
+                        type="button"
+                        color="secondary"
+                        variant="contained"
+                        onClick={() => this.handleClick("back")}
+                        >
+                        Back
+                    </Button>
                 </div>
-            </header>
         )
     }
 }

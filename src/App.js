@@ -24,7 +24,15 @@ class OneAndDone extends React.Component {
         this.state = {
             xCurScreen: screenStates.LANDING,
             xLeagueID: 0,
+            xSignedIn: false,
         };
+
+    }
+
+    setSignedIn = (value) => {
+        this.setState({
+            xSignedIn: value
+        })
     }
 
     setCurScreen = (value) => {
@@ -49,7 +57,7 @@ class OneAndDone extends React.Component {
                 );
             case screenStates.LOGIN:
                 return (
-                    <LoginControl setScreen={this.setCurScreen.bind(this)}/>
+                    <LoginControl setScreen={this.setCurScreen.bind(this)} setSignIn={this.setSignedIn.bind(this)} />
                 );
             case screenStates.JOIN_LEAGUE:
                 return (

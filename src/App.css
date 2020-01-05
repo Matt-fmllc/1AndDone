@@ -6,6 +6,7 @@
 .App-Body {
     background-color: rgba(255, 255, 255, 0.7);
     min-height: 100vh;
+    min-width: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,6 +14,37 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+
+
+/* custom css */
+
+/* Container needed to position the button. Adjust the width as needed */
+.landing_container {
+    position: relative;
+    width: 50%;
+}
+
+/* Make the image responsive */
+.landing_container img {
+    width: 100%;
+    height: auto;
+}
+
+.landing_container .landing_container_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 
 /*   the following is from the template  */
 
