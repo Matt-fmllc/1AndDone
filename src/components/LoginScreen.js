@@ -10,17 +10,9 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 //import Button from "./custombuttons/Button.js";
 
-import BackGroundImage from "./../assets/images/14-Team-NFL-Playoffs.jpg";
+import BackGroundImage from "./../assets/images/nfl-wild-card.jpg";
 
 import { screenStates } from "./../App.js";
-
-
-//const images = [
-//    {
-//        url: "./../assets/images/14-Team-NFL-Playoffs.jpg",
-//        title: "playoff_brackets_image",
-//    }
-//]
 
 
 export default class LoginControl extends React.Component {
@@ -48,9 +40,21 @@ export default class LoginControl extends React.Component {
 
     render() {
         return (
-            <div>
-                <img src={BackGroundImage} alt="" width="400"/> 
-                    <Grid container justify="center" spacing={1} textAlign="center" >
+            <div class="App-Body">
+                <div class="landing_container" >
+                    <img src={BackGroundImage} alt=""
+                        width="400"
+                        style={{
+                            position: 'relative',
+                            verticalAlign: 'center',
+                        }}
+                    /> 
+                    <Grid
+                        container justify="center"
+                        spacing={1}
+                        textAlign="center"
+                        style={{ position: 'absolute', left: '10%', top: '50%', }}
+                    >
                         <Grid item xs={10} sm={4}>
                             <TextField
                                 label="Email"
@@ -58,6 +62,8 @@ export default class LoginControl extends React.Component {
                                 size="normal"
                                 margin="dense"
                                 variant="outlined"
+                                color="secondary"
+                                style={{ backgroundColor: '#ffff' }}
                                 formControlProps={{
                                     fullWidth: true
                                 }}
@@ -71,53 +77,35 @@ export default class LoginControl extends React.Component {
                                 size="normal"
                                 margin="dense"
                                 variant="outlined"
+                                color="secondary"
+                                style={{ backgroundColor: '#ffff' }}
                                 formControlProps={{
                                     fullWidth: true
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={10} sm={4}>
-                            <Button
-                                type="button"
-                                color="primary"
-                                variant="contained"
-                                formControlProps={{
-                                    fullWidth: true
-                                }}
-                                onClick={() => this.handleClick("signin")}
-                                >
-                                Sign In
-                            </Button>
-                        </Grid>
-                    <Grid item xs={10} sm={4}>
+                    </Grid>
+                </div>
+                <div  style={{ position: 'relative', left: '25%', top: '50%',}}>
                         <Button
                             type="button"
-                            color="primary"
                             variant="contained"
+                            color="secondary"
+                            onClick={() => this.handleClick("back")}
+                            >
+                            Back
+                        </Button>
+                        <Button
+                            type="button"
+                            variant="contained"
+                            color="secondary"
+                            style={{ position: 'relative', left: '15%', }}
                             onClick={() => this.handleClick("signin")}
                             >
                             Sign In
                         </Button>
-                    </Grid>
-
-                    </Grid>
-                    <Button
-                        type="button"
-                        color="primary"
-                        variant="contained"
-                        onClick={() => this.handleClick("signin")}
-                        >
-                        Sign In
-                    </Button>
-                    <Button
-                        type="button"
-                        color="secondary"
-                        variant="contained"
-                        onClick={() => this.handleClick("back")}
-                        >
-                        Back
-                    </Button>
                 </div>
+            </div>
         )
     }
 }

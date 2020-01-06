@@ -22,6 +22,7 @@
 .landing_container {
     position: relative;
     width: 50%;
+    verticalAlign: 'center';
 }
 
 /* Make the image responsive */
