@@ -18,6 +18,33 @@
 
 /* custom css */
 
+.app_base {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.main_screen {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.main_sidebar_wrapper {
+    margin: 0;
+    max-width: 120px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #00bcd4;
+}
+.main_sidebar {
+    max-width: 120px;
+    padding: 10px;
+    background: #00bcd4;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 /* Container needed to position the button. Adjust the width as needed */
 .landing_container {
     position: relative;

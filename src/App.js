@@ -6,6 +6,7 @@ import 'typeface-roboto';
 import JoinLeagueControl from "./components/JoinLeagueScreen.js"
 import LoginControl from "./components/LoginScreen.js"
 import LandingControl from "./components/LandingScreen.js"
+import MainScreenController from './components/MainScreen';
 
 
 
@@ -50,10 +51,10 @@ class OneAndDone extends React.Component {
     render() {
         const curScreen = this.state.xCurScreen;
         switch (curScreen) {
-            
+
             case screenStates.LANDING:
                 return (
-                    <LandingControl setScreen={this.setCurScreen.bind(this)}/>
+                    <LandingControl setScreen={this.setCurScreen.bind(this)} />
                 );
             case screenStates.LOGIN:
                 return (
@@ -65,19 +66,33 @@ class OneAndDone extends React.Component {
                 );
             case screenStates.CREATE_ACCOUNT:
             case screenStates.MAIN:
+                return (
+                    <MainScreenController />
+                );
             default:
                 return null;
         }
     }
 }
 
+
 function App() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    const appStyle = {
+        height: screenHeight,
+        width: screenWidth,
+    }; 
+
     return (
-        <header className="App-Body">
-            <div className="OneAndDone">
-                <OneAndDone />
-            </div>
-        </header>
+        <div className="app_base" style={appStyle}>
+            <header >
+                <div >
+                    <OneAndDone />
+                </div>
+            </header>
+        </div>
     );
 
 }

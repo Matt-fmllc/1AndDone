@@ -34,10 +34,11 @@ export default class LandingControl extends React.Component {
         }
     }
 
+//                <div class="App-Body">
     render() {
         return (
             <div>
-                <div class="App-Body">
+                <div >
                     <img src={BannerImage} alt=""
                         width="450"
                         height="100"
