@@ -1,0 +1,71 @@
+
+/*  Main Screen Foundation CSS */
+
+.main_sidebar_wrapper {
+    margin: 0;
+    max-width: 120px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #00bcd4;
+}
+
+.main_sidebar {
+    max-width: 120px;
+    padding: 10px;
+    background: #00bcd4;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.main_container{
+    position: relative;
+}
+
+.main_background_image_wrapper {
+    margin: 0;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    position: relative;
+}
+
+.main_background_text_wrapper {
+    position: relative;
+    color: white;
+    top: 0;
+    left: -120px;
+}
+
+.main_container {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 72px 1fr;
+    grid-template-areas: "sidebar content";
+}
+
+.main_container-sidebar {
+    grid-area: sidebar;
+}
+
+.main_container-content {
+    grid-area: content;
+}
+
+
+/* Home Screen CSS */
+
+.home_button_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px;
+    border: 1px solid white;
+}
+
+.home_button_create_league {
+    position: relative;
+    top: 50%;
+    left: 35%;
+}
