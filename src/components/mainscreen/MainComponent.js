@@ -7,8 +7,10 @@ import './../MainScreen.css';
 
 import { mainScreenStates } from './../MainScreen.js'
 
-import Button from '@material-ui/core/Button';
 import BackGroundImage from "./../../assets/images/MainImage.jpg"
+
+import HomeComponent from "./HomeComponent.js"
+import StandingsComponent from "./StandingsComponent"
 
 class Settings extends React.Component {
     render() {
@@ -19,58 +21,6 @@ class Settings extends React.Component {
 class Picks extends React.Component {
     render() {
         return null;
-    }
-}
-
-class Standings extends React.Component {
-    render() {
-        return null;
-    }
-}
-
-class Home extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            xCurScreen: mainScreenStates.HOME,
-        }
-
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-
-
-    handleClick() {
-        alert("click");
-        return;
-    }
-
-
-    render() {
-        const screenWidth = window.innerWidth - 120;
-        const screenHeight = window.innerHeight + 2;
-
-        return (
-            <React.Fragment>
-                <div class="home_button_wrapper" style={{ width: screenWidth, height: screenHeight }} >
-                    <div class ="home_button_create_league">
-                        <Button 
-                            type="button"
-                            size="large"
-                            variant="contained"
-                            color="primary"
-                            onClick={() => this.handleClick()}
-                            formControlProps={{
-                                fullWidth: true
-                            }}
-                            >
-                            Create League
-                        </Button>
-                    </div>
-                </div>
-            </React.Fragment>
-        );
     }
 }
 
@@ -105,7 +55,7 @@ export default class MainComponent extends React.Component {
                 return (
                     <div className="main_container">
                         <MainBackGroundComponent />
-                        <Home />
+                        <HomeComponent />
                     </div>                        
                 );
             case mainScreenStates.PICKS:
@@ -119,7 +69,7 @@ export default class MainComponent extends React.Component {
                 return (
                     <div className="main_container">
                         <MainBackGroundComponent />
-                        <Standings />
+                        <StandingsComponent />
                     </div>                        
                 );
             case mainScreenStates.SETTINGS:

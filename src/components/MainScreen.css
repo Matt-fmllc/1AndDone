@@ -61,11 +61,52 @@
     left: 0;
     margin: 0;
     padding: 0px;
-    border: 1px solid white;
 }
 
 .home_button_create_league {
     position: relative;
     top: 50%;
     left: 35%;
+}
+
+
+/* Standings Screen CSS */
+.standings_screen_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px;
+    border: 1px solid white;
+    top: 0;
+    left: 0;
+}
+
+
+.standings_screen_list_wrapper {
+    position: relative;
+    top: 10%;
+}
+
+.standings_screen_list_position {
+    position: relative;
+    padding: 0;
+    margin:0;
+    max-width: 10%;
+    left: 10%;
+}
+
+.standings_screen_list {
+    padding: 0;
+    margin: 0;
+    position: relative  ;
+    max-width: 20%;
+    top: 0;
+    left: 20%;
+}
+
+.standings_screen_list_element {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-color: white;
+    color: white;
 }
