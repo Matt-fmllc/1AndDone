@@ -27,7 +27,7 @@ class Picks extends React.Component {
 
 function MainBackGroundComponent() {
     const screenWidth = window.innerWidth - 120;
-    const screenHeight = window.innerHeight + 2;
+    const screenHeight = window.innerHeight - 2;
 
     return (
         <React.Fragment>

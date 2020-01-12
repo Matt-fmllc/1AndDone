@@ -7,6 +7,7 @@
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: #00bcd4;
+    padding: 3px;
 }
 
 .main_sidebar {
@@ -24,7 +25,7 @@
 
 .main_background_image_wrapper {
     margin: 0;
-    padding: 0px;
+    padding: 5px;
     top: 0;
     left: 0;
     position: relative;
@@ -82,31 +83,39 @@
     left: 0;
 }
 
+.standings_screen_grid_wrapper {
+    position: relative;
+    top: 10%;
+    left: 30%;
+    margin: 0;
+    padding: 0px;
+}
+
+/* style for both list elements */
+/*border: 3px solid red; */
 
 .standings_screen_list_wrapper {
     position: relative;
-    top: 10%;
+    top: 20%;
 }
 
 .standings_screen_list_position {
     position: relative;
     padding: 0;
-    margin:0;
-    max-width: 10%;
-    left: 10%;
+    margin: 0;
+    border: 1px solid white;
+    background-color: #00bcd4;
 }
 
 .standings_screen_list {
     padding: 0;
     margin: 0;
-    position: relative  ;
-    max-width: 20%;
+    position: relative;
     top: 0;
-    left: 20%;
+    border: 1px solid white;
+    background-color: #00bcd4;
 }
 
 .standings_screen_list_element {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-color: white;
     color: white;
 }
