@@ -45,14 +45,6 @@ const Scores = [
 ]
 
 
-//function GridCell() {
-//    return null;
-//}
-
-//function GridRow() {
-//    return null;
-//}
-
 
 export default class StandingsComponent extends React.Component {
     constructor(props) {

@@ -1,5 +1,7 @@
 
+/**************************************************************************/
 /*  Main Screen Foundation CSS */
+/**************************************************************************/
 
 .main_sidebar_wrapper {
     margin: 0;
@@ -25,7 +27,7 @@
 
 .main_background_image_wrapper {
     margin: 0;
-    padding: 5px;
+    padding: 1px;
     top: 0;
     left: 0;
     position: relative;
@@ -54,7 +56,9 @@
 }
 
 
+/**************************************************************************/
 /* Home Screen CSS */
+/**************************************************************************/
 
 .home_button_wrapper {
     position: absolute;
@@ -71,7 +75,10 @@
 }
 
 
+/**************************************************************************/
 /* Standings Screen CSS */
+/**************************************************************************/
+
 .standings_screen_wrapper {
     position: absolute;
     top: 0;
@@ -119,3 +126,43 @@
 .standings_screen_list_element {
     color: white;
 }
+
+/**************************************************************************/
+/*  Picks Screen CSS  */
+/**************************************************************************/
+.picks_screen_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px;
+    border: 1px solid red;
+    top: 0;
+    left: 0;
+}
+
+.picks_screen_grid_wrapper {
+    position: relative;
+    margin: 0;
+    padding: 0px;
+    border: 1px solid green;
+}
+
+.picks_screen_buttons {
+    background-color: #00bcd4;
+}
+
+.picks_screen_menu_list_dropdown {
+    font-size: 8;
+    background-color: white;
+    padding: 4px;
+    margin: 0;
+}
+
+.picks_screen_menu_list_item {
+    color: white;
+    padding: '4px',
+}
+
+
+

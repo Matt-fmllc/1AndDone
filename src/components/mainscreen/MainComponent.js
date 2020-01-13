@@ -11,6 +11,7 @@ import BackGroundImage from "./../../assets/images/MainImage.jpg"
 
 import HomeComponent from "./HomeComponent.js"
 import StandingsComponent from "./StandingsComponent"
+import PicksComponent from "./PicksComponent"
 
 class Settings extends React.Component {
     render() {
@@ -18,11 +19,7 @@ class Settings extends React.Component {
     }
 }
 
-class Picks extends React.Component {
-    render() {
-        return null;
-    }
-}
+
 
 
 function MainBackGroundComponent() {
@@ -62,7 +59,7 @@ export default class MainComponent extends React.Component {
                 return (
                     <div className="main_container">
                         <MainBackGroundComponent />
-                        <Picks />
+                        <PicksComponent />
                     </div>                        
                 );
             case mainScreenStates.STANDINGS:
