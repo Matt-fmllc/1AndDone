@@ -32,6 +32,7 @@ function MainBackGroundComponent() {
                 <img src={BackGroundImage} alt=""
                     width={screenWidth}
                     height={screenHeight}
+                    display="block"
                 />
             </div>
             <div className="main_background_text_wrapper" >

@@ -20,8 +20,8 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+            <Link color="inherit" href=" https://fatmechanics.com/1anddone/">
+                1 and Done
       </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -113,7 +113,7 @@ function DrawSignUp(props) {
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                label="I want to receive inspiration, marketing promotions and updates via email."
+                                label="I agree with the terms and conditions of this website"
                             />
                         </Grid>
                     </Grid>
