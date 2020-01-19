@@ -38,13 +38,25 @@
     color: white;
     top: 0;
     left: -120px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
+.main_screen {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid red;
+}
+
+/*grid-template-rows: 72px 1fr; */
+
 .main_container {
+    border: 1px solid blue;
     display: grid;
     grid-template-columns: 120px 1fr;
-    grid-template-rows: 72px 1fr;
     grid-template-areas: "sidebar content";
+    padding: 0px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .main_container-sidebar {
@@ -141,12 +153,6 @@
     left: 0;
 }
 
-.picks_screen_grid_wrapper {
-    position: relative;
-    margin: 0;
-    padding: 0px;
-    border: 1px solid green;
-}
 
 .picks_screen_buttons {
     background-color: #00bcd4;
@@ -164,5 +170,50 @@
     padding: '4px',
 }
 
+.picks_screen_button_list {
+    padding: 3px;
+    margin: 1px;
+    position: relative;
+}
 
+.picks_screen_grid_wrapper {
+    position: relative;
+    margin: 0;
+    padding: 0px;
+    border: 1px solid green;
+}
 
+.picks_screen_grid{
+    left: 15%;
+    top: 30%;
+    position: absolute;
+}
+
+.picks_screen_table {
+    top: 30%;
+    width: 100%;
+    border: 1px solid blue;
+    position: absolute;
+}
+
+.picks_screen_table_row {
+    position: relative;
+    border: 1px solid white;
+}
+
+.picks_screen_table_item {
+    position: relative;
+    border: 1px solid red;
+    width: 120px;
+}
+
+.picks_item_table_header {
+    width: 120px;
+    height: 10px;
+    border: 1px solid green;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    margin: 0px;    
+    font-size: 12px;
+}

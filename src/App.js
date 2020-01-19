@@ -4,9 +4,11 @@ import './App.css';
 import 'typeface-roboto';
 
 import JoinLeagueControl from "./components/JoinLeagueScreen.js"
-import LoginControl from "./components/LoginScreen.js"
+//import LoginControl from "./components/LoginScreen.js"
 import LandingControl from "./components/LandingScreen.js"
-import MainScreenController from './components/MainScreen';
+import MainScreenController from './components/MainScreen'
+import SignUp from './components/SignUpScreen'
+import SignIn from './components/SignInScreen'
 
 
 
@@ -15,7 +17,9 @@ export const screenStates = {
     LOGIN: 'login',
     JOIN_LEAGUE: 'join_league',
     CREATE_ACCOUNT: 'create_account',
-    MAIN: 'main'
+    MAIN: 'main',
+    SIGN_UP: 'sign_up',
+    SIGN_IN: 'sign_in',
 }
 
 
@@ -58,11 +62,15 @@ class OneAndDone extends React.Component {
                 );
             case screenStates.LOGIN:
                 return (
-                    <LoginControl setScreen={this.setCurScreen.bind(this)} setSignIn={this.setSignedIn.bind(this)} />
+                    <SignIn setScreen={this.setCurScreen.bind(this)} setSignIn={this.setSignedIn.bind(this)} />
                 );
             case screenStates.JOIN_LEAGUE:
                 return (
                     <JoinLeagueControl setScreen={this.setCurScreen.bind(this)} setLeagueID={this.setLeagueID.bind(this)} />
+                );
+            case screenStates.SIGN_UP:
+                return (
+                    <SignUp setScreen={this.setCurScreen.bind(this)} />
                 );
             case screenStates.CREATE_ACCOUNT:
             case screenStates.MAIN:
@@ -87,11 +95,11 @@ function App() {
 
     return (
         <div className="app_base" style={appStyle}>
-            <header >
+            <body >
                 <div >
                     <OneAndDone />
                 </div>
-            </header>
+            </body>
         </div>
     );
 

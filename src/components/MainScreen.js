@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import './../App.css'
+
 import './MainScreen.css'
 import './sidebar/SideBar'
 
@@ -34,9 +34,17 @@ export default class MainScreenController extends React.Component {
     }
 
     render() {
+        //const screenWidth = window.innerWidth;
+        //const screenHeight = window.innerHeight;
+
+        //const PCWrapperStyle = {
+        //    height: screenHeight,
+        //    width: screenWidth,
+        //}
+
         return (
             <div className="main_screen" >
-                <div class="main_container" >
+                <div className="main_container" >
                     <SideBar2 items={sideBarItems} setState={this.setMainScreenState.bind(this)} class="main_container-sidebar"/>
                     <div class="main_content">
                         <MainScreen curScreen={this.state.xCurScrn} class="main_container-content" />

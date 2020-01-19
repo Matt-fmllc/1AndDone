@@ -21,8 +21,8 @@ export default class HomeComponent extends React.Component {
 
 
     render() {
-        const screenWidth = window.innerWidth - 121;
-        const screenHeight = window.innerHeight - 3;
+        const screenWidth = window.innerWidth - 120;
+        const screenHeight = window.innerHeight;
 
         return (
             <React.Fragment>

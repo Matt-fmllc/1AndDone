@@ -60,7 +60,7 @@ export default class StandingsComponent extends React.Component {
 
     render() {
         const screenWidth = window.innerWidth - 120;
-        const screenHeight = window.innerHeight - 2;
+        const screenHeight = window.innerHeight;
 
         const SCWrapperStyle = {
             height: screenHeight,

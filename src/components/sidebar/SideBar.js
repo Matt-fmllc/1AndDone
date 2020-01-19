@@ -41,7 +41,7 @@ export default class SideBar2 extends React.Component {
     }
 
     render() {
-        const screenHeight = window.innerHeight;
+        const screenHeight = window.innerHeight-2;
 
         const SBWrapperStyle = {
             height: screenHeight,
