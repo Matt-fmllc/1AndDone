@@ -14,6 +14,14 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 //import TextField from '@material-ui/core/TextField';
+import TableContainer from '@material-ui/core/MenuList';
+import Table from '@material-ui/core/MenuList';
+import TableBody from '@material-ui/core/MenuList';
+import TableCell from '@material-ui/core/MenuList';
+import TableHead from '@material-ui/core/MenuList';
+import TableRow from '@material-ui/core/MenuList';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 import { withStyles } from '@material-ui/styles/';
 
@@ -190,6 +198,35 @@ function PositionDropDown({ Players }) {
 //}
 
 
+//class Round extends React.Component {
+//    constructor(props) {
+//        super(props);
+//        this.state = {
+//            QBs: this.props.QBs,
+//            WRs: this.props.WRs,
+//            RBs: this.props.RBs,
+//            TEs: this.props.TEs,
+//            DFs: this.props.DFs,
+//            KIs: this.props.KIs,
+//        }
+//    }
+//    render() {
+//        return (
+//            <div>
+//                <div className=" picks_screen_table_row">
+//                    <td> <PositionDropDown Players={this.state.QBs} />  </td>
+//                    <td> <PositionDropDown Players={this.state.WRs} />  </td>
+//                    <td> <PositionDropDown Players={this.state.RBs} />  </td>
+//                    <td> <PositionDropDown Players={this.state.TEs} />  </td>
+//                    <td> <PositionDropDown Players={this.state.DFs} />  </td>
+//                    <td> <PositionDropDown Players={this.state.KIs} />  </td>
+//                </div>
+//            </div>
+//        );
+//    }
+//}
+
+
 class Round extends React.Component {
     constructor(props) {
         super(props);
@@ -204,18 +241,73 @@ class Round extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className=" picks_screen_table_row">
-                    <td> <PositionDropDown Players={this.state.QBs} />  </td>
-                    <td> <PositionDropDown Players={this.state.WRs} />  </td>
-                    <td> <PositionDropDown Players={this.state.RBs} />  </td>
-                    <td> <PositionDropDown Players={this.state.TEs} />  </td>
-                    <td> <PositionDropDown Players={this.state.DFs} />  </td>
-                    <td> <PositionDropDown Players={this.state.KIs} />  </td>
-                </div>
-            </div>
+            <PositionDropDown Players={this.state.QBs} />
         );
     }
+}
+
+const useStyles = makeStyles({
+    root: {
+        width: '100%',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        border: '1px solid green',
+    },
+    container: {
+        position: 'relative',
+        height: '100%',
+        width: '100%',
+        border: '1px solid red',
+    }
+});
+
+
+function DrawTable(props) {
+
+    const columns = [
+        { id: 'Round', label: "Round", minWidth: 40, maxWidth: 50, align: 'left' },
+        { id: 'QB', label: "QB", minWidth: 50, maxWidth: 50, align: 'left' },
+        { id: 'RB', label: "RB", minWidth: 50, maxWidth: 50, align: 'right' },
+        { id: 'WR', label: "WR", minWidth: 50, maxWidth: 50, align: 'right' },
+        { id: 'TE', label: "TE", minWidth: 50, maxWidth: 50, align: 'center' },
+        { id: 'DE', label: "DE", minWidth: 50, maxWidth: 50, align: 'center' },
+        { id: 'KI', label: "KI", minWidth: 50, maxWidth: 50, align: 'center' },
+    ]
+
+    const classes = useStyles();
+
+    return (
+        <Paper className={classes.root} aria-label="sticky table">
+            <TableContainer className={classes.container}>
+                <Table stickyheader >
+                    <TableHead>
+                        <TableRow>
+                            {columns.map(column => (
+                                <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                    style={{ minWidth: column.minWidth }}
+                                >
+                                    {column.label}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>
+                                <Round
+                                    QBs={props.QBs} WRs={props.WRs}
+                                    RBs={props.RBs} TEs={props.TEs}
+                                    DFs={props.DFs} KIs={props.KIs} />
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Paper>
+    );
 }
 
 export default class PicksComponent extends React.Component {
@@ -244,53 +336,90 @@ export default class PicksComponent extends React.Component {
         //        dense: true,
         //    }
 
+
         return (
-            <div className="picks_screen_wrapper" style={PCWrapperStyle} >
-                <div className="picks_screen_grid_wrapper" style={PCWrapperStyle}>
-                    <table className="picks_screen_table" >
-                        <thead >
-                            <tr >
-                                <th className="picks_item_table_header">QB</th>
-                                <th className="picks_item_table_header">RB</th>
-                                <th className="picks_item_table_header">WR</th>
-                                <th className="picks_item_table_header">TE</th>
-                                <th className="picks_item_table_header">DF</th>
-                                <th className="picks_item_table_header">KI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>    
-                                <Round // wildcard round
-                                    QBs={this.state.QBs} WRs={this.state.WRs}
-                                    RBs={this.state.RBs} TEs={this.state.TEs}
-                                    DFs={this.state.DFs} KIs={this.state.KIs} />
-                            </tr>
-                            <tr>
-                                <Round // division round
-                                    QBs={this.state.QBs} WRs={this.state.WRs}
-                                    RBs={this.state.RBs} TEs={this.state.TEs}
-                                    DFs={this.state.DFs} KIs={this.state.KIs} />
-                            </tr>
-                            <tr>
-                                <Round // championship round
-                                    QBs={this.state.QBs} WRs={this.state.WRs}
-                                    RBs={this.state.RBs} TEs={this.state.TEs}
-                                    DFs={this.state.DFs} KIs={this.state.KIs} />
-                            </tr>
-                            <tr>
-                                <Round // superbowl round
-                                    QBs={this.state.QBs} WRs={this.state.WRs}
-                                    RBs={this.state.RBs} TEs={this.state.TEs}
-                                    DFs={this.state.DFs} KIs={this.state.KIs} />
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div  style={PCWrapperStyle} >
+                <DrawTable 
+                    QBs={this.state.QBs} WRs={this.state.WRs}
+                    RBs={this.state.RBs} TEs={this.state.TEs}
+                    DFs={this.state.DFs} KIs={this.state.KIs} />
             </div>
         );
     }
 }
 
+//export default class PicksComponent extends React.Component {
+//    constructor(props) {
+//        super(props);
+//        this.state = {
+//            QBs: qbChoices,
+//            WRs: wrChoices,
+//            RBs: rbChoices,
+//            TEs: teChoices,
+//            DFs: dChoices,
+//            KIs: kChoices,
+//        }
+//    }
+//    render() {
+//        const screenWidth = window.innerWidth - 120;
+//        const screenHeight = window.innerHeight - 2;
+
+//        const PCWrapperStyle = {
+//            height: screenHeight,
+//            width: screenWidth,
+//        }
+
+//        //const PCStyle = {
+//        //        color: 'white',
+//        //        dense: true,
+//        //    }
+
+//        return (
+//            <div className="picks_screen_wrapper" style={PCWrapperStyle} >
+//                <div className="picks_screen_grid_wrapper" style={PCWrapperStyle}>
+//                    <table className="picks_screen_table" >
+//                        <thead >
+//                            <tr >
+//                                <th className="picks_item_table_header">QB</th>
+//                                <th className="picks_item_table_header">RB</th>
+//                                <th className="picks_item_table_header">WR</th>
+//                                <th className="picks_item_table_header">TE</th>
+//                                <th className="picks_item_table_header">DF</th>
+//                                <th className="picks_item_table_header">KI</th>
+//                            </tr>
+//                        </thead>
+//                        <tbody>
+//                            <tr>
+//                                <Round // wildcard round
+//                                    QBs={this.state.QBs} WRs={this.state.WRs}
+//                                    RBs={this.state.RBs} TEs={this.state.TEs}
+//                                    DFs={this.state.DFs} KIs={this.state.KIs} />
+//                            </tr>
+//                            <tr>
+//                                <Round // division round
+//                                    QBs={this.state.QBs} WRs={this.state.WRs}
+//                                    RBs={this.state.RBs} TEs={this.state.TEs}
+//                                    DFs={this.state.DFs} KIs={this.state.KIs} />
+//                            </tr>
+//                            <tr>
+//                                <Round // championship round
+//                                    QBs={this.state.QBs} WRs={this.state.WRs}
+//                                    RBs={this.state.RBs} TEs={this.state.TEs}
+//                                    DFs={this.state.DFs} KIs={this.state.KIs} />
+//                            </tr>
+//                            <tr>
+//                                <Round // superbowl round
+//                                    QBs={this.state.QBs} WRs={this.state.WRs}
+//                                    RBs={this.state.RBs} TEs={this.state.TEs}
+//                                    DFs={this.state.DFs} KIs={this.state.KIs} />
+//                            </tr>
+//                        </tbody>
+//                    </table>
+//                </div>
+//            </div>
+//        );
+//    }
+//}
 
 
 

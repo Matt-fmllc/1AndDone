@@ -112,7 +112,7 @@ function DrawSignUp(props) {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
-                                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                                control={<Checkbox value="acceptTerms" color="primary" />}
                                 label="I agree with the terms and conditions of this website"
                             />
                         </Grid>
