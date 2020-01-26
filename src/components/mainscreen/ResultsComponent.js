@@ -33,6 +33,8 @@ const useStyles = makeStyles({
     },
     cell: {
         fontSize: '8pt',
+        fontWeight: 'bold',
+        border: '1px solid grey',
     },
     dyncell: {
         padding: '2px',
@@ -48,8 +50,11 @@ const useStyles = makeStyles({
         '&:hover': {
             backgroundColor: '#00bcd4',
         },
-
-    }
+    },
+    tableRow: {
+        backgroundcolor:'#aafafa',
+        background: '#00bcd0',
+    },
 });
 
 
@@ -82,11 +87,12 @@ function DrawStaticCell(props) {
 }
 
 function DrawTablePlayerRow(props) {
+    const classes = useStyles();
 
     return (
         <React.Fragment>
             {
-                <TableRow>
+                <TableRow className={classes.tableRow}>
                     <DrawStaticCell text={props.Result[0]} />
                     <DrawStaticCell text={props.Result[1]} />
                     <DrawStaticCell text={props.Result[3]} />
@@ -189,7 +195,7 @@ function DrawTable() {
                     <TableHead className={classes.header}>
                         <DrawTableHeader />
                     </TableHead>
-                    <TableBody>
+                    <TableBody >
                         <DrawRows Results={ResultsData} />
                     </TableBody>
                 </Table>
