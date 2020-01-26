@@ -33,6 +33,10 @@ const useStyles = makeStyles({
     },
     cell: {
         fontSize: '8pt',
+        border: '1px solid grey',
+    },
+    row_header: {
+        fontSize: '8pt',
         fontWeight: 'bold',
         border: '1px solid grey',
     },
@@ -53,7 +57,7 @@ const useStyles = makeStyles({
     },
     tableRow: {
         backgroundcolor:'#aafafa',
-        background: '#00bcd0',
+        background: '#d3d3d3',
     },
 });
 
@@ -79,7 +83,21 @@ function DrawStaticCell(props) {
         <TableCell className={classes.cell}
             key={props.text}
             align='center'
-            style={{ minWidth: 50, maxWidth: 50 }}
+            style={{ minWidth: 45, maxWidth: 45 }}
+        >
+            {props.text}
+        </TableCell>
+    );
+}
+
+function DrawStaticCellRowHeader(props) {
+    const classes = useStyles();
+
+    return (
+        <TableCell className={classes.row_header}
+            key={props.text}
+            align='center'
+            style={{ minWidth: 40, maxWidth: 40 }}
         >
             {props.text}
         </TableCell>
@@ -93,7 +111,7 @@ function DrawTablePlayerRow(props) {
         <React.Fragment>
             {
                 <TableRow className={classes.tableRow}>
-                    <DrawStaticCell text={props.Result[0]} />
+                    <DrawStaticCellRowHeader text={props.Result[0]} />
                     <DrawStaticCell text={props.Result[1]} />
                     <DrawStaticCell text={props.Result[3]} />
                     <DrawStaticCell text={props.Result[5]} />
@@ -119,7 +137,7 @@ function DrawTableScoreRow(props) {
         <React.Fragment>
             {
                 <TableRow>
-                    <DrawStaticCell text={Total} />
+                    <DrawStaticCellRowHeader text={Total} />
                     <DrawStaticCell text={props.Result[2]} />
                     <DrawStaticCell text={props.Result[4]} />
                     <DrawStaticCell text={props.Result[6]} />
@@ -160,13 +178,13 @@ function DrawTableHeader() {
     const classes = useStyles();
 
     const columns = [
-        { id: 'Player', label: "Player", minWidth: 80, maxWidth: 80, align: 'center' },
-        { id: 'QB', label: "QB", minWidth: 50, maxWidth: 50, align: 'center' },
-        { id: 'RB', label: "RB", minWidth: 50, maxWidth: 50, align: 'center' },
-        { id: 'WR', label: "WR", minWidth: 50, maxWidth: 50, align: 'center' },
-        { id: 'TE', label: "TE", minWidth: 50, maxWidth: 50, align: 'center' },
-        { id: 'DF', label: "DF", minWidth: 50, maxWidth: 50, align: 'center' },
-        { id: 'KI', label: "KI", minWidth: 50, maxWidth: 50, align: 'center' },
+        { id: 'Player', label: "Player", minWidth: 40, maxWidth: 40, align: 'center' },
+        { id: 'QB', label: "QB", minWidth: 45, maxWidth: 45, align: 'center' },
+        { id: 'RB', label: "RB", minWidth: 45, maxWidth: 45, align: 'center' },
+        { id: 'WR', label: "WR", minWidth: 45, maxWidth: 45, align: 'center' },
+        { id: 'TE', label: "TE", minWidth: 45, maxWidth: 45, align: 'center' },
+        { id: 'DF', label: "DF", minWidth: 45, maxWidth: 45, align: 'center' },
+        { id: 'KI', label: "KI", minWidth: 45, maxWidth: 45, align: 'center' },
     ]
 
     return (
