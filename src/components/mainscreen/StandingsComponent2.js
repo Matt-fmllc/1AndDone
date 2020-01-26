@@ -162,7 +162,7 @@ function DrawTableHeader() {
     );
 }
 
-function DrawTable(props) {
+function DrawTable() {
     const classes = useStyles();
 
     return (
@@ -195,7 +195,7 @@ export default class StandingsComponent2 extends React.Component {
 
     render() {
         return (
-            <DrawTable Place={Standings} Player={Players} Score={Scores} />
+            <DrawTable />
         );
     }
 }
