@@ -55,13 +55,13 @@ const useStyles = makeStyles({
 
 const ResultsData = [
     ['Bob', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7' ],
-    ['Steve', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
-    ['Bell', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
-    ['Biv', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Steve', 'qb1', '12', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Bell', 'qb1', '0', 'rb1', '10', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Biv', 'qb1', '0', 'rb1', '0', 'wr1', '5', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['DeVoe', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['John', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
-    ['Mary', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
-    ['Greta', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Mary', 'qb1', '0', 'rb1', '0', 'wr1', '15', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Greta', 'qb1', '20', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['Tiffany', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['Dorothy', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['Jennifer', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
@@ -82,6 +82,7 @@ function DrawStaticCell(props) {
 }
 
 function DrawTablePlayerRow(props) {
+
     return (
         <React.Fragment>
             {
@@ -100,11 +101,19 @@ function DrawTablePlayerRow(props) {
 }
 
 function DrawTableScoreRow(props) {
+
+    var Total = parseInt(props.Result[2], 10)
+            + parseInt(props.Result[4], 10)
+            + parseInt(props.Result[6], 10)
+            + parseInt(props.Result[8], 10)
+            + parseInt(props.Result[10], 10)
+            + parseInt(props.Result[12], 10);
+
     return (
         <React.Fragment>
             {
                 <TableRow>
-                    <DrawStaticCell text="" />
+                    <DrawStaticCell text={Total} />
                     <DrawStaticCell text={props.Result[2]} />
                     <DrawStaticCell text={props.Result[4]} />
                     <DrawStaticCell text={props.Result[6]} />
