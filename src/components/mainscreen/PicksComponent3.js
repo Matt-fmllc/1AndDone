@@ -100,6 +100,7 @@ const useStyles = makeStyles({
     },
     dyncell: {
         padding: '2px',
+        mr: '2px',
         align: 'center',
         border: '1px solid black',
     },
@@ -198,7 +199,7 @@ function PositionDropDown({ Players }) {
                                 <MenuList className="picks_screen_menu_list_dropdown" id="split-button-menu">
                                     {Players.map((option, index) => (
                                         <MenuItem className="picks_screen_menu_list_item"
-                                            disableGutters='true'
+                                            disableGutters='false'
                                             component='h2'
                                             key={option}
                                             disabled={index === selectedIndex}
@@ -229,7 +230,7 @@ function DrawStaticCell(props) {
         <TableCell className={classes.cell}
             key={props.text}
             align='center'
-            style={{ minWidth: 70, maxWidth: 100 }}
+            style={{ minWidth: 80, maxWidth: 80 }}
         >
             {props.text}
         </TableCell>
@@ -293,11 +294,11 @@ function DrawTableHeader() {
     const classes = useStyles();
 
     const columns = [
-        { id: 'Pos', label: "Pos", minWidth: 70, maxWidth: 70, align: 'center' },
-        { id: 'WildCard', label: "Wildcard", minWidth: 100, maxWidth: 100, align: 'center' },
-        { id: 'Division', label: "Divisional", minWidth: 100, maxWidth: 100, align: 'center' },
-        { id: 'Semis', label: "Semis", minWidth: 100, maxWidth: 100, align: 'center' },
-        { id: 'SuperBowl', label: "SuperBowl", minWidth: 100, maxWidth: 100, align: 'center' },
+        { id: 'Pos', label: "Pos", minWidth: 80, maxWidth: 80, align: 'center' },
+        { id: 'WildCard', label: "Wildcard", minWidth: 80, maxWidth: 80, align: 'center' },
+        { id: 'Division', label: "Divisional", minWidth: 80, maxWidth: 80, align: 'center' },
+        { id: 'Semis', label: "Semis", minWidth: 80, maxWidth: 80, align: 'center' },
+        { id: 'SuperBowl', label: "SuperBowl", minWidth: 80, maxWidth: 80, align: 'center' },
     ]
 
     return (
