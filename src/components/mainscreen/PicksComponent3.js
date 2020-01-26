@@ -237,6 +237,20 @@ function DrawStaticCell(props) {
     );
 }
 
+function DrawStaticHeaderCell(props) {
+    const classes = useStyles();
+
+    return (
+        <TableCell className={classes.cell}
+            key={props.text}
+            align='center'
+            style={{ minWidth: 20, maxWidth: 40 }}
+        >
+            {props.text}
+        </TableCell>
+    );
+}
+
 
 function DrawDynamicCell(props) {
     const classes = useStyles();
@@ -265,7 +279,7 @@ function DrawDynamicRow(props) {
 
     return (
         <TableRow>
-            <DrawStaticCell text={Positions[props.Pos].label} />
+            <DrawStaticHeaderCell text={Positions[props.Pos].label} />
             {Cells[0]}
             {Cells[1]}
             {Cells[2]}
@@ -294,7 +308,7 @@ function DrawTableHeader() {
     const classes = useStyles();
 
     const columns = [
-        { id: 'Pos', label: "Pos", minWidth: 80, maxWidth: 80, align: 'center' },
+        { id: 'Pos', label: "Pos", minWidth: 20, maxWidth: 40, align: 'center' },
         { id: 'WildCard', label: "Wildcard", minWidth: 80, maxWidth: 80, align: 'center' },
         { id: 'Division', label: "Divisional", minWidth: 80, maxWidth: 80, align: 'center' },
         { id: 'Semis', label: "Semis", minWidth: 80, maxWidth: 80, align: 'center' },
@@ -319,6 +333,7 @@ function DrawTableHeader() {
 function DrawTable(props) {
 
     const classes = useStyles();
+    var Locked = '2';
 
     return (
         <Paper className={classes.root} aria-label="sticky table">
@@ -330,27 +345,27 @@ function DrawTable(props) {
                     <TableBody>
                         <DrawRow
                             Pos='0'
-                            Locked='2'
+                            Locked={Locked}
                             Players={props.QBs}  />
                         <DrawRow
                             Pos='1'
-                            Locked ='2'
+                            Locked={Locked}
                             Players={props.RBs}  />
                         <DrawRow
                             Pos='2'
-                            Locked='2'
+                            Locked={Locked}
                             Players={props.WRs} />
                         <DrawRow
                             Pos='3'
-                            Locked='2'
+                            Locked={Locked}
                             Players={props.TEs} />
                         <DrawRow
                             Pos='4'
-                            Locked='2'
+                            Locked={Locked}
                             Players={props.DFs} />
                         <DrawRow
                             Pos='5'
-                            Locked='2'
+                            Locked={Locked}
                             Players={props.KIs} />
                     </TableBody>
                 </Table>
