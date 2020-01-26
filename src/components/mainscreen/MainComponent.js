@@ -12,12 +12,9 @@ import BackGroundImage from "./../../assets/images/MainImage.jpg"
 import HomeComponent from "./HomeComponent.js"
 import StandingsComponent2 from "./StandingsComponent2"
 import PicksComponent3 from "./PicksComponent3"
+import Results from "./ResultsComponent"
+import Settings from "./SettingsComponent"
 
-class Settings extends React.Component {
-    render() {
-        return null;
-    }
-}
 
 
 
@@ -76,6 +73,13 @@ export default class MainComponent extends React.Component {
                         <MainBackGroundComponent />
                         <Settings />
                     </div>                        
+                );
+            case mainScreenStates.RESULTS:
+                return (
+                    <div className="main_container">
+                        <MainBackGroundComponent />
+                        <Results />
+                    </div>
                 );
         }
     }

@@ -16,6 +16,7 @@ export const mainScreenStates = {
     HOME: 'Home',
     STANDINGS: 'Standings',
     PICKS: 'Picks',
+    RESULTS: 'Results',
     SETTINGS: 'Settings',
 }
 

@@ -37,6 +37,9 @@ export default class SideBar2 extends React.Component {
             case mainScreenStates.STANDINGS:
                 this.props.setState(mainScreenStates.STANDINGS);
                 return null;
+            case mainScreenStates.RESULTS:
+                this.props.setState(mainScreenStates.RESULTS);
+                return null;
         }
     }
 
