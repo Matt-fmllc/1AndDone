@@ -82,13 +82,11 @@ const useStyles = makeStyles({
         position: 'absolute',
         top: '5%',
         left: '5%',
-        border: '1px solid green',
     },
     container: {
         position: 'relative',
         height: '100%',
         width: '100%',
-        border: '1px solid red',
     },
     header: {
         fontSize: '36pt',
@@ -103,6 +101,7 @@ const useStyles = makeStyles({
     dyncell: {
         padding: '2px',
         align: 'center',
+        border: '1px solid black',
     },
     downarrowbutton: {
         color: 'white',
@@ -227,10 +226,10 @@ function DrawStaticCell(props) {
     const classes = useStyles();
 
     return (
-        <TableCell className={classes.dyncell}
+        <TableCell className={classes.cell}
             key={props.text}
             align='center'
-            style={{ minWidth: 70 }}
+            style={{ minWidth: 70, maxWidth: 100 }}
         >
             {props.text}
         </TableCell>
@@ -242,64 +241,34 @@ function DrawDynamicCell(props) {
     const classes = useStyles();
 
     return (
-        <TableCell className={classes.dyncell} key='qb1' align='center' >
+        <TableCell className={classes.dyncell} key='qb1' alignCenter='true' >
             <PositionDropDown Players={props.Players} />
         </TableCell>
     );
 }
 
-// row is locked, no changes can be made
-function DrawStaticRow(props) {
-
-    return (
-        <TableRow>
-            <DrawStaticCell text={Positions[props.Pos].label} />
-            <DrawStaticCell text={props.Players[0]} />
-            <DrawStaticCell text={props.Players[1]} />
-            <DrawStaticCell text={props.Players[2]} />
-            <DrawStaticCell text={props.Players[3]} />
-        </TableRow>
-    );
-}
 
 // row is not locked, user gets drop down to select form
 // locked starts at 0, ie-> at qb's
 function DrawDynamicRow(props) {
 
-    var Cell1 = <DrawDynamicCell Players={props.Players} />;
-    var Cell2 = <DrawDynamicCell Players={props.Players} />;
-    var Cell3 = <DrawDynamicCell Players={props.Players} />;
-    var Cell4 = <DrawDynamicCell Players={props.Players} />;
-    switch (props.Locked) {
-        case "1":
-            Cell1 = <DrawStaticCell text={props.Players[0]} />
-            break;
-        case "2":
-            Cell1 = <DrawStaticCell text={props.Players[0]} />
-            Cell2 = <DrawStaticCell text={props.Players[1]} />
-            break;
-        case "3":
-            Cell1 = <DrawStaticCell text={props.Players[0]} />
-            Cell2 = <DrawStaticCell text={props.Players[1]} />
-            Cell3 = <DrawStaticCell text={props.Players[2]} />
-            break;
-        case "4":
-            Cell1 = <DrawStaticCell text={props.Players[0]} />
-            Cell2 = <DrawStaticCell text={props.Players[1]} />
-            Cell3 = <DrawStaticCell text={props.Players[2]} />
-            Cell4 = <DrawStaticCell text={props.Players[3]} />
-            break;
-        default:
-            break;
+
+    var Cells = [4];
+    for (var x = 0; x < 4; x++) {
+        if ( x < props.Locked) {
+            Cells[x] = <DrawStaticCell text={props.Players[x]} />;
+        } else {
+            Cells[x] = <DrawDynamicCell Players={props.Players} />
+        }
     }
 
     return (
         <TableRow>
             <DrawStaticCell text={Positions[props.Pos].label} />
-            {Cell1}
-            {Cell2}
-            {Cell3}
-            {Cell4}
+            {Cells[0]}
+            {Cells[1]}
+            {Cells[2]}
+            {Cells[3]}
         </TableRow>
     );
 
@@ -308,23 +277,13 @@ function DrawDynamicRow(props) {
 
 function DrawRow(props) {
 
-    if (props.Locked === 'true') {
-        return (
-            <DrawStaticRow
-                Pos={props.Pos}
-                Locked={props.Locked}
-                Players={props.Players}
-            />
-        );
-    } else {
-        return (
-            < DrawDynamicRow
-                Pos={props.Pos}
-                Locked={props.Locked}
-                Players={props.Players}
-            />
-        );
-    }
+    return (
+        < DrawDynamicRow
+            Pos={props.Pos}
+            Locked={props.Locked}
+            Players={props.Players}
+        />
+    );
 
 }
 
@@ -335,10 +294,10 @@ function DrawTableHeader() {
 
     const columns = [
         { id: 'Pos', label: "Pos", minWidth: 70, maxWidth: 70, align: 'center' },
-        { id: 'WildCard', label: "Wildcard", minWidth: 40, maxWidth: 40, align: 'center' },
-        { id: 'Division', label: "Divisional", minWidth: 40, maxWidth: 40, align: 'center' },
-        { id: 'Semis', label: "Semis", minWidth: 40, maxWidth: 40, align: 'center' },
-        { id: 'SuperBowl', label: "SuperBowl", minWidth: 40, maxWidth: 40, align: 'center' },
+        { id: 'WildCard', label: "Wildcard", minWidth: 100, maxWidth: 100, align: 'center' },
+        { id: 'Division', label: "Divisional", minWidth: 100, maxWidth: 100, align: 'center' },
+        { id: 'Semis', label: "Semis", minWidth: 100, maxWidth: 100, align: 'center' },
+        { id: 'SuperBowl', label: "SuperBowl", minWidth: 100, maxWidth: 100, align: 'center' },
     ]
 
     return (
