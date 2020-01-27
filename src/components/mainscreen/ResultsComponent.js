@@ -53,7 +53,6 @@ const useStyles = makeStyles({
         flexShrink: '0',
         width: '100%',
         minWidth: '100%',
-        background: '#d3d3d3',
     },  
     cell: {
         fontSize: '8pt',
@@ -238,14 +237,6 @@ function DrawRows(props) {
             <DrawTableRow Result={result} />)
         )
     );
-    //return (
-    //    <React.Fragment>
-    //        {
-    //            props.Results.map((result, index, ...rest) =>
-    //                <DrawTableRow Result={result} />)
-    //        }
-    //    </React.Fragment>
-    //);
 }
 
 function DrawTableHeader() {
@@ -281,7 +272,7 @@ function DrawTableFooter(props) {
     return (
         <TableRow>
             <TablePagination
-                rowsPerPageOptions={[3, 6]}
+                rowsPerPageOptions={[3, 6, 9]}
                 count={props.Results.length}
                 rowsPerPage={props.RowsPerPage}
                 page={props.Page}
@@ -305,7 +296,6 @@ function DrawTable() {
     const [rowsPerPage, setRowsPerPage] = React.useState(3);
 
     const handleChangePage = (event, newPage) => {
-        alert(newPage);
         setPage(newPage);
     };
 
