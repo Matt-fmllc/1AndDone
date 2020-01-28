@@ -3,13 +3,12 @@
 import React from 'react'
 
 import './MainScreen.css'
-import './sidebar/SideBar'
 
-
-import { sideBarItems } from "./ComponentConstants"
-//import SideBar from './sidebar/SideBar'
+import MenuBar from './menubar/MenuBar'
 import SideBar2 from './sidebar/SideBar'
 import MainComponent from "./mainscreen/MainComponent"
+
+import { sideBarItems } from "./ComponentConstants"
 
 
 export const mainScreenStates = {
@@ -65,6 +64,9 @@ export default class MainScreenController extends React.Component {
 
         return (
             <div className="main_screen" style={PCWrapperStyle} >
+                <div>
+                    <MenuBar />
+                </div>
                 <div className="main_container" style={PCWrapperStyle}>
                     <div className="main_container-sidebar" >
                         <SideBar2  

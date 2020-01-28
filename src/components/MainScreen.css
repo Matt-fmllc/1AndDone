@@ -31,12 +31,12 @@
     display: grid;
     grid-template-columns: 120px auto;
     grid-template-areas: "sidebar content";
-    top: 0px;
+    top: 5%;
     left: 0px;
     margin: 0px;
     padding: 0px;
     /*border: 5px solid blue;*/
-    position: absolute;
+    position: relative;
 }
 
 .main_container-sidebar {
@@ -57,7 +57,7 @@
     padding: 0px;
     background: #00bcd4;
     position: relative;
-    top: 0;
+    top: 5%;
     left: 0;
 }
 
