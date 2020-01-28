@@ -52,7 +52,7 @@ const Scores = [
 const useStyles = makeStyles({
     root: {
         width: '90%',
-        position: 'absolute',
+        position: 'relative',
         top: '5%',
         left: '5%',
     },
@@ -122,10 +122,6 @@ function DrawRows(props) {
         RenderData.push([ props.Place[x], props.Player[x], props.Score[x] ]);
     }
 
-    //alert(RenderData);
-    //alert( RenderData[0][0].place );
-    //alert(RenderData[0][0].player);
-    //alert(RenderData[0][0].score);
     return (
         <React.Fragment>
             {

@@ -22,6 +22,7 @@ export default class SideBar2 extends React.Component {
         this.handleClick.bind(this);
     }
 
+
     handleClick = (e) => {
         switch (e.name) {
             default:
@@ -44,26 +45,19 @@ export default class SideBar2 extends React.Component {
     }
 
     render() {
-        const screenHeight = window.innerHeight-2;
-
-        const SBWrapperStyle = {
-            height: screenHeight,
-        };
 
         const SBStyle = {
             color: 'white',
         }
 
         return (
-            <div class="main_sidebar_wrapper" style={SBWrapperStyle}>
-                <List class="main_sidebar" dense style={SBStyle} >
-                    {sideBarItems.map(({ label, name, ...rest }) => (
-                        <ListItem onClick={() => this.handleClick({ name })} key={name} button {...rest} >
-                            <ListItemText>{label}</ListItemText>
-                        </ListItem>
-                    ))}
-                </List>
-            </div>
+            <List style={SBStyle} >
+                {sideBarItems.map(({ label, name, ...rest }) => (
+                    <ListItem onClick={() => this.handleClick({ name })} key={name} button {...rest} >
+                        <ListItemText>{label}</ListItemText>
+                    </ListItem>
+                ))}
+            </List>
         );
     }
 

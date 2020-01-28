@@ -79,7 +79,7 @@ const kChoices = [
 const useStyles = makeStyles({
     root: {
         width: '90%',
-        position: 'absolute',
+        position: 'relative',
         top: '5%',
         left: '5%',
     },
@@ -311,7 +311,7 @@ function DrawTableHeader() {
         { id: 'Pos', label: "Pos", minWidth: 20, maxWidth: 40, align: 'center' },
         { id: 'WildCard', label: "Wildcard", minWidth: 80, maxWidth: 80, align: 'center' },
         { id: 'Division', label: "Divisional", minWidth: 80, maxWidth: 80, align: 'center' },
-        { id: 'Semis', label: "Semis", minWidth: 80, maxWidth: 80, align: 'center' },
+        { id: 'Semis', label: "Championship", minWidth: 80, maxWidth: 80, align: 'center' },
         { id: 'SuperBowl', label: "SuperBowl", minWidth: 80, maxWidth: 80, align: 'center' },
     ]
 
@@ -395,6 +395,7 @@ export default class PicksComponent2 extends React.Component {
         );
     }
 }
+
 
 
 

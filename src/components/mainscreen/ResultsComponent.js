@@ -1,6 +1,7 @@
 
 
 import React from 'react';
+import "./../MainScreen.css"
 
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
@@ -13,9 +14,11 @@ import TableRow from '@material-ui/core/TableRow';
 import TableBody from '@material-ui/core/TableBody';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-
 import LastPageIcon from '@material-ui/icons/LastPage';
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
@@ -31,9 +34,18 @@ const useStyles1 = makeStyles(theme => ({
 }));
 
 const useStyles = makeStyles({
+    root2: {
+        width: '90%',
+        height: '10%',
+        position: 'relative',
+        top: '5%',
+        left: '5%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',    },
     root: {
         width: '90%',
-        position: 'absolute',
+        position: 'relative',
         top: '5%',
         left: '5%',
     },
@@ -46,8 +58,9 @@ const useStyles = makeStyles({
         fontSize: '36pt',
     },
     header_cell: {
-        padding: '2px',
+        padding: '3px',
         fontSize: '16pt',
+        border: '1px solid grey',
     },
     footer: {
         flexShrink: '0',
@@ -73,6 +86,48 @@ const useStyles = makeStyles({
 
 const ResultsData = [
     ['Bob', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7' ],
+    ['Steve', 'qb1', '12', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Bell', 'qb1', '0', 'rb1', '10', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Biv', 'qb1', '0', 'rb1', '0', 'wr1', '5', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['DeVoe', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['John', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Mary', 'qb1', '0', 'rb1', '0', 'wr1', '15', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Greta', 'qb1', '20', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Tiffany', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Dorothy', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Jennifer', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+];
+
+const ResultsData1 = [
+    ['Bob', 'qb1', '1', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Steve', 'qb1', '12', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Bell', 'qb1', '0', 'rb1', '10', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Biv', 'qb1', '0', 'rb1', '0', 'wr1', '5', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['DeVoe', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['John', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Mary', 'qb1', '0', 'rb1', '0', 'wr1', '15', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Greta', 'qb1', '20', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Tiffany', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Dorothy', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Jennifer', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+];
+
+const ResultsData2 = [
+    ['Bob', 'qb1', '2', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Steve', 'qb1', '12', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Bell', 'qb1', '0', 'rb1', '10', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Biv', 'qb1', '0', 'rb1', '0', 'wr1', '5', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['DeVoe', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['John', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Mary', 'qb1', '0', 'rb1', '0', 'wr1', '15', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Greta', 'qb1', '20', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Tiffany', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Dorothy', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+    ['Jennifer', 'qb1', '0', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
+];
+
+const ResultsData3 = [
+    ['Bob', 'qb1', '3', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['Steve', 'qb1', '12', 'rb1', '0', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['Bell', 'qb1', '0', 'rb1', '10', 'wr1', '0', 'te1', '0', 'df1', '0', 'ki1', '7'],
     ['Biv', 'qb1', '0', 'rb1', '0', 'wr1', '5', 'te1', '0', 'df1', '0', 'ki1', '7'],
@@ -289,11 +344,11 @@ function DrawTableFooter(props) {
 }
 
 
-function DrawTable() {
+function DrawTable(props) {
     const classes = useStyles();
 
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(3);
+    const [rowsPerPage, setRowsPerPage] = React.useState(6);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -313,14 +368,14 @@ function DrawTable() {
                     </TableHead>
                     <TableBody >
                         <DrawRows
-                            Results={ResultsData}
+                            Results={props.Results}
                             RowsPerPage={rowsPerPage}
                             Page={page}
                         />
                     </TableBody>
                     <TableFooter className={classes.footer}>
                         <DrawTableFooter
-                            Results={ResultsData}
+                            Results={props.Results}
                             RowsPerPage={rowsPerPage}
                             Page={page}
                             handleChangePage={(event,newPage) => handleChangePage(event,newPage)}
@@ -333,17 +388,78 @@ function DrawTable() {
     );
 }
 
+function DrawTableControls(props) {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root2}>
+            <Paper>
+                <ButtonGroup >
+                    <Button key="wildcard" onClick={() =>props.handleClick("wildcard")} >WildCard</Button>
+                    <Button key="divisional" onClick={() =>props.handleClick("divisional")} >Divisional</Button>
+                    <Button key="championship" onClick={() =>props.handleClick("championship")} >Championship</Button>
+                    <Button key="superbowl" onClick={() =>props.handleClick("superbowl")} >SuperBowl</Button>
+                </ButtonGroup>
+            </Paper>
+        </div>
+    );
+}
+
 export default class Results extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             items: props.items,
+            selRound: 0,
+        }
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(name){
+
+        switch (name) {
+            default:
+            case "wildcard":
+                this.setState({ selRound: 0 });
+                break;
+            case "divisional":
+                this.setState({ selRound: 1 });
+                break;
+            case "championship":
+                this.setState({ selRound: 2 });
+                break;
+            case "superbowl":
+                this.setState({ selRound: 3 });
+                break;
         }
     }
 
     render() {
+
+        var Data;
+        switch (this.state.selRound) {
+            default:
+            case 0:
+                Data = ResultsData;
+                break;
+            case 1:
+                Data = ResultsData1;
+                break;
+            case 2:
+                Data = ResultsData2;
+                break;
+            case 3:
+                Data = ResultsData3;
+                break;
+        }
+
+
         return (
-            <DrawTable />
+            <React.Fragment>
+                <DrawTableControls handleClick={this.handleClick.bind(this)}/>
+                <DrawTable Results={Data}/>
+            </React.Fragment>
         );
     }
 }

@@ -1,27 +1,13 @@
-﻿.App {
-  text-align: center;
-}
-
-
-.App-Body {
-    background-color: rgba(255, 255, 255, 0.7);
-    min-height: 100vh;
-    min-width: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-
+﻿
 /* custom css */
 
 .app_base {
+    min-height: 400px;
+    min-width: 400px;
+    background: rgba(255, 255, 255, 0.7);
+    position: center;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.7);
 }
 
 

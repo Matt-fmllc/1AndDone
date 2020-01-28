@@ -30,8 +30,24 @@ class OneAndDone extends React.Component {
             xCurScreen: screenStates.LANDING,
             xLeagueID: 0,
             xSignedIn: false,
+            width: 0,
+            height: 0,
         };
 
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions() {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
 
     setSignedIn = (value) => {
@@ -96,9 +112,7 @@ function App() {
     return (
         <div className="app_base" style={appStyle}>
             <body >
-                <div >
-                    <OneAndDone />
-                </div>
+                <OneAndDone />
             </body>
         </div>
     );
