@@ -27,7 +27,6 @@ const useStyles = makeStyles({
     },
 
     table: {
-        border: '3px solid red',
         justify: "right",
         alignItems:"right",
         flexDirection: 'row',
@@ -35,7 +34,6 @@ const useStyles = makeStyles({
 
     table_cell: {
         align: 'center',
-        border: '3px solid black',
     },
 
     buttons: {
